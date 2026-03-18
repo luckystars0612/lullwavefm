@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lullwave FM — AI Ambient Music for Sleep, Focus & Healing</title>
+  <meta name="description" content="Lullwave FM delivers handcrafted AI-generated ambient music across four mood channels: sleep, study, chill, and healing. Stream free on YouTube and all major platforms." />
+  <meta property="og:title" content="Lullwave FM" />
+  <meta property="og:description" content="AI ambient music for sleep, focus, chill & healing." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #09090f;
+      --bg2:       #0e0e18;
+      --surface:   #13131f;
+      --border:    rgba(255,255,255,0.07);
+      --text:      #e8e6f0;
+      --muted:     #7a7890;
+      --accent-a:  #8ba4c8;   /* moth blue — sleep */
+      --accent-b:  #c8b08a;   /* warm amber — study */
+      --accent-c:  #a8c8a0;   /* sage — chill */
+      --accent-d:  #c8a8b8;   /* dusty rose — healing */
+      --glow:      rgba(139,164,200,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ── Ambient glow blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      animation: blobFade 3s ease forwards;
+    }
+    .blob-1 { width: 600px; height: 600px; top: -200px; left: -100px; background: radial-gradient(circle, rgba(139,164,200,0.08), transparent 70%); animation-delay: 0.3s; }
+    .blob-2 { width: 500px; height: 500px; bottom: 10%; right: -150px; background: radial-gradient(circle, rgba(200,176,138,0.06), transparent 70%); animation-delay: 0.8s; }
+    .blob-3 { width: 400px; height: 400px; top: 50%; left: 40%; background: radial-gradient(circle, rgba(200,168,184,0.05), transparent 70%); animation-delay: 1.2s; }
+    @keyframes blobFade { to { opacity: 1; } }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent-a); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 0 80px;
+    }
+    .hero-tag {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-a); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--accent-a);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent-a); }
+    .hero-sub {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.9;
+      margin-bottom: 56px;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent-a); color: var(--bg);
+      border: 1px solid var(--accent-a);
+    }
+    .btn-primary:hover { background: transparent; color: var(--accent-a); }
+    .btn-ghost {
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+    /* waveform deco */
+    .hero-wave {
+      margin-top: 80px;
+      display: flex; align-items: flex-end; gap: 3px;
+      height: 48px; opacity: 0.3;
+    }
+    .hero-wave span {
+      display: block; width: 3px; border-radius: 2px;
+      background: var(--accent-a);
+      animation: wave 1.8s ease-in-out infinite;
+    }
+    .hero-wave span:nth-child(2n) { background: var(--accent-d); animation-duration: 2.1s; }
+    .hero-wave span:nth-child(3n) { background: var(--accent-c); animation-duration: 1.5s; }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); }
+    }
+
+    /* ── Channels section ── */
+    section { padding: 120px 0; }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+    }
+    .channel-card {
+      background: var(--surface);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+    .channel-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--c-accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .channel-card:hover { background: #16162a; }
+    .channel-card:hover::before { transform: scaleX(1); }
+
+    .channel-card[data-ch="a"] { --c-accent: var(--accent-a); }
+    .channel-card[data-ch="b"] { --c-accent: var(--accent-b); }
+    .channel-card[data-ch="c"] { --c-accent: var(--accent-c); }
+    .channel-card[data-ch="d"] { --c-accent: var(--accent-d); }
+
+    .ch-icon {
+      font-size: 1.8rem; margin-bottom: 20px; display: block;
+    }
+    .ch-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 300;
+      color: var(--c-accent);
+      margin-bottom: 8px;
+    }
+    .ch-usecase {
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .ch-desc {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.8;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .about-text p {
+      color: var(--muted); font-size: 0.82rem; line-height: 1.9; margin-bottom: 16px;
+    }
+
+    .stats-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+    .stats-list li {
+      background: var(--surface);
+      padding: 24px 28px;
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.25s;
+    }
+    .stats-list li:hover { border-color: var(--accent-a); }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: var(--text);
+    }
+    .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── Platforms ── */
+    .platforms-row {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px;
+    }
+    .platform-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+      transition: all 0.2s;
+    }
+    .platform-chip:hover { border-color: var(--accent-a); color: var(--text); }
+
+    /* ── TikTok CTA strip ── */
+    .tiktok-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .tiktok-strip h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300;
+    }
+    .tiktok-strip p { color: var(--muted); font-size: 0.8rem; margin-top: 8px; }
+    .btn-tiktok {
+      background: #010101; color: #fff;
+      border: 1px solid #333;
+      padding: 14px 32px;
+    }
+    .btn-tiktok:hover { border-color: #69c9d0; color: #69c9d0; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+    footer .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; letter-spacing: 0.12em; color: var(--muted);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.68rem; color: #3a3850; }
+
+    /* ── Reveal animations ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .tiktok-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ambient blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <div class="wrap">
+      <a class="nav-logo" href="#">Lullwave<span> FM</span></a>
+      <ul class="nav-links">
+        <li><a href="#channels">Channels</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#platforms">Listen</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-tag reveal">AI Ambient Music Studio</div>
+      <h1 class="reveal reveal-delay-1">Music that <em>breathes</em><br>with you.</h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Lullwave FM is an AI-powered ambient music platform delivering continuous, 
+        handcrafted soundscapes across four mood channels — from deep sleep and focused 
+        study to late-night chill and meditative healing.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a class="btn btn-primary" href="https://www.youtube.com/@MidnightMoth" target="_blank" rel="noopener">▶ Listen Free</a>
+        <a class="btn btn-ghost" href="#channels">Explore Channels</a>
+      </div>
+      <div class="hero-wave reveal reveal-delay-4">
+        <script>
+          for (let i = 0; i < 60; i++) {
+            const h = 8 + Math.random() * 40;
+            document.write(`<span style="height:${h}px;animation-delay:${(i*0.06).toFixed(2)}s"></span>`);
+          }
+        </script>
+      </div>
+    </section>
+  </div>
+
+  <!-- Channels -->
+  <div id="channels">
+    <div class="wrap">
+      <div class="section-label reveal">Four Channels</div>
+      <div class="channels-grid">
+        <a class="channel-card reveal" data-ch="a" href="https://www.youtube.com/@MidnightMoth" target="_blank" rel="noopener">
+          <span class="ch-icon">🌙</span>
+          <div class="ch-name">The Midnight Moth</div>
+          <div class="ch-usecase">Sleep · Meditation</div>
+          <p class="ch-desc">Ethereal pads, singing bowls, and drifting overtones designed to guide you into deep, restorative sleep.</p>
+        </a>
+        <a class="channel-card reveal reveal-delay-1" data-ch="b" href="https://www.youtube.com/@PaperInkRadio" target="_blank" rel="noopener">
+          <span class="ch-icon">📖</span>
+          <div class="ch-name">Paper & Ink Radio</div>
+          <div class="ch-usecase">Study · Focus · Work</div>
+          <p class="ch-desc">Warm lo-fi beats, soft Rhodes, and vinyl crackle — the soundtrack of deep concentration.</p>
+        </a>
+        <a class="channel-card reveal reveal-delay-2" data-ch="c" href="https://www.youtube.com/@AmberAndVinyl" target="_blank" rel="noopener">
+          <span class="ch-icon">🌆</span>
+          <div class="ch-name">Amber & Vinyl</div>
+          <div class="ch-usecase">Chill · Café · Night Drive</div>
+          <p class="ch-desc">Late-night jazz brushstrokes, acoustic warmth, and the quiet hum of a city after rain.</p>
+        </a>
+        <a class="channel-card reveal reveal-delay-3" data-ch="d" href="https://www.youtube.com/@MossTemple" target="_blank" rel="noopener">
+          <span class="ch-icon">🍃</span>
+          <div class="ch-name">Moss Temple</div>
+          <div class="ch-usecase">Yoga · Healing · Zen</div>
+          <p class="ch-desc">Shakuhachi flutes, singing bowls, and flowing water — ancient sounds for modern stillness.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="about">
+    <div class="wrap">
+      <section>
+        <div class="section-label reveal">About Lullwave FM</div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h2>Ambient music,<br>thoughtfully made.</h2>
+            <p>Lullwave FM uses AI composition tools to generate original, royalty-free ambient music — each track carefully reviewed and curated before release.</p>
+            <p>Every channel has a distinct sonic identity: locked instruments, atmosphere, and mood that stays consistent across hundreds of hours of music.</p>
+            <p>We publish 1-hour compilations to YouTube and distribute individual tracks to Spotify, Apple Music, and all major streaming platforms via DistroKid.</p>
+          </div>
+          <ul class="stats-list reveal reveal-delay-2">
+            <li>
+              <span class="stat-label">Channels</span>
+              <span class="stat-num">4</span>
+            </li>
+            <li>
+              <span class="stat-label">Mood categories</span>
+              <span class="stat-num">Sleep · Study · Chill · Healing</span>
+            </li>
+            <li>
+              <span class="stat-label">Platforms</span>
+              <span class="stat-num">6+</span>
+            </li>
+            <li>
+              <span class="stat-label">New music</span>
+              <span class="stat-num">Daily</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Platforms -->
+  <div id="platforms">
+    <div class="wrap">
+      <section style="padding-top: 0;">
+        <div class="section-label reveal">Available On</div>
+        <div class="platforms-row reveal reveal-delay-1">
+          <a class="platform-chip" href="https://www.youtube.com/@MidnightMoth" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="platform-chip" href="https://www.tiktok.com/@lullwave.official" target="_blank" rel="noopener">♪ TikTok</a>
+          <a class="platform-chip" href="#" target="_blank" rel="noopener">🎵 Spotify</a>
+          <a class="platform-chip" href="#" target="_blank" rel="noopener">🍎 Apple Music</a>
+          <a class="platform-chip" href="#" target="_blank" rel="noopener">☁ SoundCloud</a>
+          <a class="platform-chip" href="#" target="_blank" rel="noopener">🎶 Amazon Music</a>
+        </div>
+
+        <!-- TikTok strip -->
+        <div class="tiktok-strip reveal" style="margin-top: 64px;">
+          <div>
+            <h3>Follow us on TikTok</h3>
+            <p>Daily 60-second ambient clips — the perfect sonic reset for your feed.</p>
+          </div>
+          <a class="btn btn-tiktok btn" href="https://www.tiktok.com/@lullwave.official" target="_blank" rel="noopener">
+            @lullwave.official ↗
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-logo">Lullwave FM</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:contact@lullwavefm.com">Contact</a>
+        <a href="https://www.tiktok.com/@lullwave.official" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@MidnightMoth" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="footer-copy">© 2025 Lullwave FM. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    // hero items visible immediately
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 120);
+    });
+  </script>
+</body>
+</html>
