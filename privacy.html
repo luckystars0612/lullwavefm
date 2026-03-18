@@ -2,53 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — LullwaveFM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Lullwave FM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.7; }
-    h1 { color: #111; }
-    h2 { color: #444; margin-top: 32px; }
-    p  { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 24px; }
-    li { margin: 6px 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #09090f; --surface: #13131f; --border: rgba(255,255,255,0.07);
+      --text: #e8e6f0; --muted: #7a7890; --accent: #8ba4c8;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-weight: 300; line-height: 1.8; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    nav a { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; letter-spacing: 0.1em; }
+    nav span { color: var(--accent); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; margin-bottom: 12px; }
+    .date { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 56px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--accent); margin: 48px 0 16px; }
+    p { font-size: 0.82rem; color: var(--muted); margin-bottom: 16px; }
+    ul { list-style: none; padding: 0; margin-bottom: 16px; }
+    ul li { font-size: 0.82rem; color: var(--muted); padding: 6px 0 6px 16px; border-left: 1px solid var(--border); margin-bottom: 4px; }
+    a { color: var(--accent); text-decoration: none; }
+    footer { border-top: 1px solid var(--border); margin-top: 80px; padding: 32px 0; }
+    footer p { font-size: 0.7rem; color: var(--muted); }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p><strong>Last updated:</strong> March 2026</p>
-  <p>This Privacy Policy describes how LullwaveFM ("we", "us", or "our") handles information in connection with our automated music publishing service.</p>
+  <div class="wrap">
+    <nav><a href="index.html">Lullwave<span> FM</span></a></nav>
 
-  <h2>1. Information We Collect</h2>
-  <p>This application does <strong>not</strong> collect personal information from TikTok users. The only data accessed through TikTok's API is:</p>
-  <ul>
-    <li>Access tokens required to authenticate and publish content to the LullwaveFM TikTok account</li>
-    <li>Basic account information (username, account ID) needed to verify the publishing target</li>
-  </ul>
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective date: January 1, 2025 · Last updated: March 2025</p>
 
-  <h2>2. How We Use Information</h2>
-  <p>The information accessed is used exclusively to:</p>
-  <ul>
-    <li>Authenticate the LullwaveFM account with TikTok's Content Posting API</li>
-    <li>Publish AI-generated ambient music videos to the LullwaveFM TikTok channel</li>
-  </ul>
-  <p>We do not use this information for advertising, analytics, or any other purpose.</p>
+    <p>Lullwave FM ("we", "our", or "us") operates a multi-platform AI ambient music service, including YouTube channels, TikTok (@lullwave.official), and this website. This Privacy Policy explains how we handle information in connection with our services.</p>
 
-  <h2>3. Data Storage</h2>
-  <p>OAuth access tokens are stored locally on our private server and are never shared with third parties. Tokens are used solely to authenticate API requests to TikTok on behalf of the LullwaveFM account.</p>
+    <h2>1. Information We Collect</h2>
+    <p>Lullwave FM does not directly collect personal data from website visitors. This is a static informational website. We do not use cookies, tracking pixels, or any analytics that identify individual users.</p>
+    <p>When you interact with our content on third-party platforms (YouTube, TikTok, Spotify, etc.), those platforms' own privacy policies apply to any data they collect.</p>
 
-  <h2>4. Data Sharing</h2>
-  <p>We do not sell, trade, or share any data with third parties. All API interactions are between our private server and TikTok's official API endpoints.</p>
+    <h2>2. TikTok Integration</h2>
+    <p>We use the TikTok Content Posting API solely to publish short ambient music videos to our official TikTok account (@lullwave.official). Through this integration:</p>
+    <ul>
+      <li>We do not collect, store, or share any TikTok user data.</li>
+      <li>We do not access follower information, DMs, or any personal data.</li>
+      <li>The API is used exclusively for automated video publishing by our internal system.</li>
+      <li>No third parties receive any data from our TikTok API usage.</li>
+    </ul>
 
-  <h2>5. Third-Party Services</h2>
-  <p>This service integrates with TikTok's Content Posting API. TikTok's own Privacy Policy governs how TikTok handles data on their platform. Please refer to <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en">TikTok's Privacy Policy</a> for more information.</p>
+    <h2>3. Third-Party Platforms</h2>
+    <p>Our music is distributed across YouTube, TikTok, Spotify, Apple Music, and other streaming services. Each of these platforms operates under its own privacy policy and data practices. We encourage you to review their respective policies.</p>
 
-  <h2>6. Security</h2>
-  <p>We take reasonable measures to protect access tokens and account credentials. Access is restricted to authorized systems only.</p>
+    <h2>4. Data Security</h2>
+    <p>We take reasonable precautions to protect our systems. Since we do not collect user data, there is no personal data at risk from our website or publishing tools.</p>
 
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. Changes will be reflected by updating the "Last updated" date above.</p>
+    <h2>5. Children's Privacy</h2>
+    <p>Our service is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
 
-  <h2>8. Contact</h2>
-  <p>For questions about this Privacy Policy, please contact us through the LullwaveFM TikTok account.</p>
+    <h2>6. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected by updating the "Last updated" date above. Continued use of our service after changes constitutes acceptance of the revised policy.</p>
+
+    <h2>7. Contact</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us at:<br>
+    <a href="mailto:contact@lullwavefm.com">contact@lullwavefm.com</a></p>
+
+    <footer><p>© 2025 Lullwave FM. All rights reserved. <a href="index.html">← Back to Home</a></p></footer>
+  </div>
 </body>
 </html>
