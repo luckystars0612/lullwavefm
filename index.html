@@ -175,14 +175,8 @@
       align-items: flex-start;
       padding: 0.75rem;
       border-radius: 4px;
-      text-decoration: none;
       color: inherit;
-      transition: background 0.2s;
       border: 1px solid transparent;
-    }
-    .latest-track:hover {
-      background: var(--surface);
-      border-color: var(--border);
     }
 
     .latest-thumb {
@@ -603,14 +597,14 @@
         const url = t.watch_url || ch.youtube_channel || '#';
 
         return `
-          <a class="latest-track" href="${url}" target="_blank" rel="noopener">
+          <div class="latest-track">
             ${thumb}
             <div class="latest-info">
               <div class="latest-title">${displayTitle}</div>
               <div class="latest-meta">${[meta, dateStr].filter(Boolean).join(' · ')}</div>
               ${platforms ? `<div class="latest-platforms">${platforms}</div>` : ''}
             </div>
-          </a>`;
+          </div>`;
       }).join('');
 
       skeletonEl.innerHTML = header + tracksHtml;
