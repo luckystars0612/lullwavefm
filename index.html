@@ -234,6 +234,12 @@
     }
 
     .latest-platform-badge {
+      display: inline-block; font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
+      background: rgba(255,255,255,0.06); color: var(--muted);
+      text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    a.latest-platform-badge:hover { background: rgba(255,255,255,0.12); color: var(--text); }
       font-size: 0.62rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -586,7 +592,14 @@
           : `<div class="latest-thumb-placeholder">${ch.icon}</div>`;
 
         const platforms = (t.platforms || [])
-          .map(p => `<span class="latest-platform-badge">${PLATFORM_LABELS[p] || p}</span>`)
+          .map(p => {
+            const url = (t.platform_urls || {})[p];
+            const label = PLATFORM_LABELS[p] || p;
+            if (url) {
+              return `<a class="latest-platform-badge" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${label}</a>`;
+            }
+            return `<span class="latest-platform-badge">${label}</span>`;
+          })
           .join('');
 
         const dateStr = relativeDate(t.uploaded_at);

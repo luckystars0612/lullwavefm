@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-25T08:58:22Z",
+  "updated_at": "2026-03-25T09:05:00Z",
   "channels": {
     "artist_a": {
       "name": "The Midnight Moth",
@@ -18,7 +18,13 @@
           "platforms": [
             "youtube",
             "facebook"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/Z3Y86Gs_i7E",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/1247635200904689",
+            "instagram": null
+          }
         },
         {
           "title": "Stillness in Silver Light",
@@ -30,7 +36,13 @@
           "platforms": [
             "youtube",
             "facebook"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/na3BlP5NC5k",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/958157503348683",
+            "instagram": null
+          }
         },
         {
           "title": "The Tide's Returning Whisper (Ver. B)",
@@ -41,7 +53,13 @@
           "genre": "Ambient Acoustic",
           "platforms": [
             "youtube"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/ZNdaxoCVkNo",
+            "tiktok": null,
+            "facebook": null,
+            "instagram": null
+          }
         }
       ]
     },
@@ -63,7 +81,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/_6lB22m6764",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/3920916208049518",
+            "instagram": "https://www.instagram.com/reel/DWTKSREAhpU/"
+          }
         },
         {
           "title": "The Weight of Open Pages",
@@ -76,7 +100,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/QSLw9EQmWYA",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/1419856599405681",
+            "instagram": "https://www.instagram.com/reel/DWTJxRJAhHG/"
+          }
         }
       ]
     },
@@ -98,7 +128,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/YW5MX4dOA8U",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/1391393459696058",
+            "instagram": "https://www.instagram.com/reel/DWTPB-_gm7G/"
+          }
         },
         {
           "title": "Rue des Rosiers at 2AM",
@@ -110,7 +146,13 @@
           "platforms": [
             "youtube",
             "facebook"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/goFqSznaOp8",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/693805530460582",
+            "instagram": null
+          }
         }
       ]
     },
@@ -132,7 +174,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/p4W0NXL7xCE",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/952642010573194",
+            "instagram": "https://www.instagram.com/reel/DWTLZYUAjmR/"
+          }
         },
         {
           "title": "The Stone That Breathes",
@@ -145,7 +193,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/JDf5P7Pxsos",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/831778079935977",
+            "instagram": "https://www.instagram.com/reel/DWTK2x_gnm3/"
+          }
         },
         {
           "title": "The Rim’s First Glow (Ver. B)",
@@ -158,7 +212,13 @@
             "youtube",
             "facebook",
             "instagram"
-          ]
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/I6Efca2G6yI",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/2023702661516655",
+            "instagram": "https://www.instagram.com/reel/DWQjfvblJj2/"
+          }
         }
       ]
     }
