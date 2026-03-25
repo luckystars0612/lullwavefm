@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-24T07:35:10Z",
+  "updated_at": "2026-03-25T08:26:46Z",
   "channels": {
     "artist_a": {
       "name": "The Midnight Moth",
@@ -49,7 +49,34 @@
       "icon": "📖",
       "color": "#c9a87b",
       "youtube_channel": "https://www.youtube.com/@PaperInkRadio",
-      "latest": []
+      "latest": [
+        {
+          "title": "The Weight of Open Pages",
+          "watch_url": "https://youtu.be/QSLw9EQmWYA",
+          "thumbnail": "https://i.ytimg.com/vi/QSLw9EQmWYA/mqdefault.jpg",
+          "uploaded_at": "",
+          "mood": "Stillness",
+          "genre": "Lo-fi Rhodes Ambient",
+          "platforms": [
+            "youtube",
+            "facebook",
+            "instagram"
+          ]
+        },
+        {
+          "title": "The Margin of the Day",
+          "watch_url": "https://youtu.be/_6lB22m6764",
+          "thumbnail": "https://i.ytimg.com/vi/_6lB22m6764/mqdefault.jpg",
+          "uploaded_at": "",
+          "mood": "Patient",
+          "genre": "Lofi Ambient Jazz",
+          "platforms": [
+            "youtube",
+            "facebook",
+            "instagram"
+          ]
+        }
+      ]
     },
     "artist_c": {
       "name": "Amber & Vinyl",
@@ -57,7 +84,33 @@
       "icon": "🌆",
       "color": "#e8b86d",
       "youtube_channel": "https://www.youtube.com/@AmberAndVinyl",
-      "latest": []
+      "latest": [
+        {
+          "title": "Rue des Rosiers at 2AM",
+          "watch_url": "https://youtu.be/goFqSznaOp8",
+          "thumbnail": "https://i.ytimg.com/vi/goFqSznaOp8/mqdefault.jpg",
+          "uploaded_at": "",
+          "mood": "Nostalgic",
+          "genre": "Muted Trumpet Jazz",
+          "platforms": [
+            "youtube",
+            "facebook"
+          ]
+        },
+        {
+          "title": "Amber Light on Wet Cobblestones",
+          "watch_url": "https://youtu.be/YW5MX4dOA8U",
+          "thumbnail": "https://i.ytimg.com/vi/YW5MX4dOA8U/mqdefault.jpg",
+          "uploaded_at": "",
+          "mood": "Bittersweet, Nostalgic, Mellow",
+          "genre": "Muted Trumpet Jazz, Jazz Instrumental",
+          "platforms": [
+            "youtube",
+            "facebook",
+            "instagram"
+          ]
+        }
+      ]
     },
     "artist_d": {
       "name": "Moss Temple",
