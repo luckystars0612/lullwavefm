@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-25T08:26:46Z",
+  "updated_at": "2026-03-25T08:58:22Z",
   "channels": {
     "artist_a": {
       "name": "The Midnight Moth",
@@ -9,34 +9,36 @@
       "youtube_channel": "https://www.youtube.com/channel/UCgENQuysCTfeoIAwcZd5n8A",
       "latest": [
         {
-          "title": "Salt Air and Silver Light",
-          "watch_url": "https://youtu.be/iwZiIZb4k3E",
-          "thumbnail": "https://i.ytimg.com/vi/iwZiIZb4k3E/mqdefault.jpg",
-          "uploaded_at": "",
+          "title": "The Silvering of the Glass (Ver. B)",
+          "watch_url": "https://youtu.be/Z3Y86Gs_i7E",
+          "thumbnail": "https://i.ytimg.com/vi/Z3Y86Gs_i7E/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Ethereal",
+          "genre": "Ambient Sleep",
+          "platforms": [
+            "youtube",
+            "facebook"
+          ]
+        },
+        {
+          "title": "Stillness in Silver Light",
+          "watch_url": "https://youtu.be/na3BlP5NC5k",
+          "thumbnail": "https://i.ytimg.com/vi/na3BlP5NC5k/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Stillness",
+          "genre": "Ambient Harp",
+          "platforms": [
+            "youtube",
+            "facebook"
+          ]
+        },
+        {
+          "title": "The Tide's Returning Whisper (Ver. B)",
+          "watch_url": "https://youtu.be/ZNdaxoCVkNo",
+          "thumbnail": "https://i.ytimg.com/vi/ZNdaxoCVkNo/mqdefault.jpg",
+          "uploaded_at": "2026-03-21",
           "mood": "Serene",
           "genre": "Ambient Acoustic",
-          "platforms": [
-            "youtube"
-          ]
-        },
-        {
-          "title": "The Shoreline's Heavy Breath (Ver. B)",
-          "watch_url": "https://youtu.be/Dv03WI1LPEE",
-          "thumbnail": "https://i.ytimg.com/vi/Dv03WI1LPEE/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Restorative, Calm, Intimate",
-          "genre": "Acoustic Ambient",
-          "platforms": [
-            "youtube"
-          ]
-        },
-        {
-          "title": "The Driftwood's Long Wait",
-          "watch_url": "https://youtu.be/rqYB536O3K4",
-          "thumbnail": "https://i.ytimg.com/vi/rqYB536O3K4/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Solitary, Peaceful, Reflective, Calm",
-          "genre": "Acoustic Ambient",
           "platforms": [
             "youtube"
           ]
@@ -51,12 +53,12 @@
       "youtube_channel": "https://www.youtube.com/@PaperInkRadio",
       "latest": [
         {
-          "title": "The Weight of Open Pages",
-          "watch_url": "https://youtu.be/QSLw9EQmWYA",
-          "thumbnail": "https://i.ytimg.com/vi/QSLw9EQmWYA/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Stillness",
-          "genre": "Lo-fi Rhodes Ambient",
+          "title": "The Margin of the Day",
+          "watch_url": "https://youtu.be/_6lB22m6764",
+          "thumbnail": "https://i.ytimg.com/vi/_6lB22m6764/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Patient",
+          "genre": "Lofi Ambient Jazz",
           "platforms": [
             "youtube",
             "facebook",
@@ -64,12 +66,12 @@
           ]
         },
         {
-          "title": "The Margin of the Day",
-          "watch_url": "https://youtu.be/_6lB22m6764",
-          "thumbnail": "https://i.ytimg.com/vi/_6lB22m6764/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Patient",
-          "genre": "Lofi Ambient Jazz",
+          "title": "The Weight of Open Pages",
+          "watch_url": "https://youtu.be/QSLw9EQmWYA",
+          "thumbnail": "https://i.ytimg.com/vi/QSLw9EQmWYA/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Stillness",
+          "genre": "Lo-fi Rhodes Ambient",
           "platforms": [
             "youtube",
             "facebook",
@@ -86,28 +88,28 @@
       "youtube_channel": "https://www.youtube.com/@AmberAndVinyl",
       "latest": [
         {
-          "title": "Rue des Rosiers at 2AM",
-          "watch_url": "https://youtu.be/goFqSznaOp8",
-          "thumbnail": "https://i.ytimg.com/vi/goFqSznaOp8/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Nostalgic",
-          "genre": "Muted Trumpet Jazz",
-          "platforms": [
-            "youtube",
-            "facebook"
-          ]
-        },
-        {
           "title": "Amber Light on Wet Cobblestones",
           "watch_url": "https://youtu.be/YW5MX4dOA8U",
           "thumbnail": "https://i.ytimg.com/vi/YW5MX4dOA8U/mqdefault.jpg",
-          "uploaded_at": "",
+          "uploaded_at": "2026-03-25",
           "mood": "Bittersweet, Nostalgic, Mellow",
           "genre": "Muted Trumpet Jazz, Jazz Instrumental",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
+          ]
+        },
+        {
+          "title": "Rue des Rosiers at 2AM",
+          "watch_url": "https://youtu.be/goFqSznaOp8",
+          "thumbnail": "https://i.ytimg.com/vi/goFqSznaOp8/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Nostalgic",
+          "genre": "Muted Trumpet Jazz",
+          "platforms": [
+            "youtube",
+            "facebook"
           ]
         }
       ]
@@ -120,36 +122,42 @@
       "youtube_channel": "https://www.youtube.com/channel/UCa9yRWxRGJZRBqIp-vA9WPQ",
       "latest": [
         {
-          "title": "First Breath on Stone",
-          "watch_url": "https://youtu.be/MtUdNCi3msk",
-          "thumbnail": "https://i.ytimg.com/vi/MtUdNCi3msk/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Reverent",
-          "genre": "Honkyoku Ambient",
+          "title": "The First Breath of Cedar (Ver. B)",
+          "watch_url": "https://youtu.be/p4W0NXL7xCE",
+          "thumbnail": "https://i.ytimg.com/vi/p4W0NXL7xCE/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Serene",
+          "genre": "Zen Ambient",
           "platforms": [
-            "youtube"
+            "youtube",
+            "facebook",
+            "instagram"
           ]
         },
         {
-          "title": "First Breath on Stone (Ver. B)",
-          "watch_url": "https://youtu.be/vLivV9jQppU",
-          "thumbnail": "https://i.ytimg.com/vi/vLivV9jQppU/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Reverent",
-          "genre": "Honkyoku Ambient",
+          "title": "The Stone That Breathes",
+          "watch_url": "https://youtu.be/JDf5P7Pxsos",
+          "thumbnail": "https://i.ytimg.com/vi/JDf5P7Pxsos/mqdefault.jpg",
+          "uploaded_at": "2026-03-25",
+          "mood": "Sacred, Serene, Calm",
+          "genre": "Zen Ambient",
           "platforms": [
-            "youtube"
+            "youtube",
+            "facebook",
+            "instagram"
           ]
         },
         {
-          "title": "A Longing in the Mist (Ver. B)",
-          "watch_url": "https://youtu.be/e74uLvlx55M",
-          "thumbnail": "https://i.ytimg.com/vi/e74uLvlx55M/mqdefault.jpg",
-          "uploaded_at": "",
-          "mood": "Yearning, Peaceful, Contemplative",
-          "genre": "Ambient Honkyoku",
+          "title": "The Rim’s First Glow (Ver. B)",
+          "watch_url": "https://youtu.be/I6Efca2G6yI",
+          "thumbnail": "https://i.ytimg.com/vi/I6Efca2G6yI/mqdefault.jpg",
+          "uploaded_at": "2026-03-24",
+          "mood": "Luminous, Peaceful, Serene, Meditative",
+          "genre": "Ambient Ethno-Acoustic, Instrumental, World",
           "platforms": [
-            "youtube"
+            "youtube",
+            "facebook",
+            "instagram"
           ]
         }
       ]
