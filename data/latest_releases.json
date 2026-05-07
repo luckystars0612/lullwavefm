@@ -1,200 +1,73 @@
 {
-  "updated_at": "2026-04-20T09:39:20Z",
+  "updated_at": "2026-05-07T12:00:44Z",
   "channels": {
-    "artist_a": {
-      "name": "The Midnight Moth",
-      "category": "sleep",
-      "icon": "🌙",
-      "color": "#7b9fc8",
-      "youtube_channel": "https://www.youtube.com/channel/UCgENQuysCTfeoIAwcZd5n8A",
-      "latest": [
-        {
-          "title": "Midnight Stillness",
-          "watch_url": "https://youtu.be/HDEF8LoKma4",
-          "thumbnail": "https://i.ytimg.com/vi/HDEF8LoKma4/mqdefault.jpg",
-          "uploaded_at": "2026-04-05",
-          "mood": "Contemplative",
-          "genre": "Ambient Chamber",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/HDEF8LoKma4",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1263743742605258",
-            "instagram": "https://www.instagram.com/reel/DW4FxrWkayh/"
-          }
-        },
-        {
-          "title": "Dreaming Through the Pane (Ver. B)",
-          "watch_url": "https://youtu.be/vZqrZs9Mr3A",
-          "thumbnail": "https://i.ytimg.com/vi/vZqrZs9Mr3A/mqdefault.jpg",
-          "uploaded_at": "2026-04-02",
-          "mood": "Dreamy",
-          "genre": "Ambient Neoclassical",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/vZqrZs9Mr3A",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1456063716065809",
-            "instagram": "https://www.instagram.com/reel/DW4E3GYEcrp/"
-          }
-        },
-        {
-          "title": "Light Caught in the Pane",
-          "watch_url": "https://youtu.be/IxC6E7BvUJ4",
-          "thumbnail": "https://i.ytimg.com/vi/IxC6E7BvUJ4/mqdefault.jpg",
-          "uploaded_at": "2026-04-02",
-          "mood": "Introspective, Calm, Peaceful, Melancholy",
-          "genre": "Ambient Chamber",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/IxC6E7BvUJ4",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1504636154552256",
-            "instagram": "https://www.instagram.com/reel/DW1YwVhDCt4/"
-          }
-        }
-      ]
-    },
-    "artist_b": {
-      "name": "Paper & Ink Radio",
-      "category": "study",
-      "icon": "📖",
-      "color": "#c9a87b",
-      "youtube_channel": "https://www.youtube.com/@PaperInkRadio",
-      "latest": [
-        {
-          "title": "Afternoon Solace",
-          "watch_url": "https://youtu.be/vEB0FBkjjdk",
-          "thumbnail": "https://i.ytimg.com/vi/vEB0FBkjjdk/mqdefault.jpg",
-          "uploaded_at": "2026-04-02",
-          "mood": "Still, Serene, Intimate",
-          "genre": "Lo-fi Jazz",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/vEB0FBkjjdk",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1709766907031345",
-            "instagram": "https://www.instagram.com/reel/DWtokJej3je/"
-          }
-        },
-        {
-          "title": "The Ink Dries Slowly",
-          "watch_url": "https://youtu.be/flXhKvyXoGA",
-          "thumbnail": "https://i.ytimg.com/vi/flXhKvyXoGA/mqdefault.jpg",
-          "uploaded_at": "2026-04-02",
-          "mood": "Contemplative",
-          "genre": "Lo-fi Jazz Fusion",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/flXhKvyXoGA",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/3760271690782336",
-            "instagram": "https://www.instagram.com/reel/DWtqHaymLRo/"
-          }
-        },
-        {
-          "title": "A Slow Turn of the Page",
-          "watch_url": "https://youtu.be/O5xje1cKICg",
-          "thumbnail": "https://i.ytimg.com/vi/O5xje1cKICg/mqdefault.jpg",
-          "uploaded_at": "2026-04-02",
-          "mood": "Introspective, Calm, Peaceful",
-          "genre": "Jazz Ambient, Instrumental",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/O5xje1cKICg",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1689421749078605",
-            "instagram": "https://www.instagram.com/reel/DWtwrRzj75I/"
-          }
-        }
-      ]
-    },
     "artist_c": {
       "name": "Amber & Vinyl",
       "category": "chill",
-      "icon": "🌆",
-      "color": "#e8b86d",
-      "youtube_channel": "https://www.youtube.com/@AmberAndVinyl",
+      "icon": "🎵",
+      "color": "#FFD54F",
+      "category_tag": "acoustic jazz / bossa nova / late night / warm, nostalgic, intimate, bittersweet / evening wind-down / cafe / nostalgic chill",
+      "description": "A small jazz bar, closing time. Two people remain at a corner table. The pianist plays quietly to himself — not performing, just thinking out loud. Outside, the street is wet from earlier rain. The city is warm and amber. This music knows something about time passing. It is not sad about it.",
+      "youtube_channel": "https://youtube.com/@ambervinyl",
+      "tiktok_url": "https://www.tiktok.com/@lullwave.official",
+      "facebook_url": "https://www.facebook.com/lullwavefm/",
+      "instagram_url": "https://www.instagram.com/lullwavefm/",
       "latest": [
         {
-          "title": "Amber Pavement Blues",
-          "watch_url": "https://youtu.be/fneUuZ8dOxs",
-          "thumbnail": "https://i.ytimg.com/vi/fneUuZ8dOxs/mqdefault.jpg",
-          "uploaded_at": "2026-04-19",
-          "mood": "Nostalgic",
-          "genre": "Jazz Noir",
+          "title": "Neon Reflections on Wet Pavement",
+          "watch_url": "https://youtu.be/q9lxt21Xx0k",
+          "thumbnail": "data/covers/song_23.jpg",
+          "uploaded_at": "2026-05-07",
+          "mood": "warm, nostalgic, intimate, bittersweet",
+          "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/fneUuZ8dOxs",
+            "youtube": "https://youtu.be/q9lxt21Xx0k",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/4394330747519201",
-            "instagram": "https://www.instagram.com/reel/DXWUbcoAWTG/"
+            "facebook": "https://www.facebook.com/reel/1694953601535679",
+            "instagram": "https://www.instagram.com/reel/DYCKIufjoDY/"
           }
         },
         {
-          "title": "The Shadow of the Last Candle",
-          "watch_url": "https://youtu.be/XdCeeluciPI",
-          "thumbnail": "https://i.ytimg.com/vi/XdCeeluciPI/mqdefault.jpg",
-          "uploaded_at": "2026-04-16",
-          "mood": "Bittersweet",
-          "genre": "Noir Jazz",
+          "title": "Letters to a City Unseen",
+          "watch_url": "https://youtu.be/8nV6EACgD3A",
+          "thumbnail": "data/covers/song_22.jpg",
+          "uploaded_at": "2026-05-07",
+          "mood": "warm, nostalgic, intimate, bittersweet",
+          "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/XdCeeluciPI",
+            "youtube": "https://youtu.be/8nV6EACgD3A",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/2170009697173810",
-            "instagram": "https://www.instagram.com/reel/DXMhcn6DD_O/"
+            "facebook": "https://www.facebook.com/reel/973238928972712",
+            "instagram": "https://www.instagram.com/reel/DYCJLnEDn39/"
           }
         },
         {
-          "title": "The Stillness of the Last Pour",
-          "watch_url": "https://youtu.be/65fOqxKixhs",
-          "thumbnail": "https://i.ytimg.com/vi/65fOqxKixhs/mqdefault.jpg",
-          "uploaded_at": "2026-04-16",
-          "mood": "Peaceful",
-          "genre": "Noir Jazz",
+          "title": "Stained Glass at Midnight",
+          "watch_url": "https://youtube.com/@ambervinyl",
+          "thumbnail": "data/covers/song_21.jpg",
+          "uploaded_at": "2026-05-07",
+          "mood": "warm, nostalgic, intimate, bittersweet",
+          "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/65fOqxKixhs",
+            "youtube": "https://youtube.com/@ambervinyl",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1079840237812802",
-            "instagram": "https://www.instagram.com/reel/DXWUJJcAW-7/"
+            "facebook": "https://www.facebook.com/reel/836713016102880",
+            "instagram": "https://www.instagram.com/reel/DYCJtR1jvnK/"
           }
         }
       ]
@@ -202,65 +75,71 @@
     "artist_d": {
       "name": "Moss Temple",
       "category": "healing",
-      "icon": "🍃",
-      "color": "#78b888",
-      "youtube_channel": "https://www.youtube.com/channel/UCa9yRWxRGJZRBqIp-vA9WPQ",
+      "icon": "🎵",
+      "color": "#A8E6CF",
+      "category_tag": "world healing / zen / sacred ambient / sacred, grounding, timeless, alive / yoga / healing / spiritual practice / deep meditation",
+      "description": "A stone temple on a misty hillside at dawn. Ancient. Moss on the walls. A monk strikes a singing bowl — the sound fills the space, then slowly dissolves into forest. Somewhere outside, a shakuhachi begins. It is not playing a song. It is breathing. Two instruments speak to each other across the silence — like two old friends sitting together, no need to fill every moment with words. The forest listens. You are very small, and very safe.",
+      "youtube_channel": "https://www.youtube.com/@LullwaveFM",
+      "tiktok_url": "https://www.tiktok.com/@lullwave.official",
+      "facebook_url": "https://www.facebook.com/lullwavefm/",
+      "instagram_url": "https://www.instagram.com/lullwavefm/",
       "latest": [
         {
-          "title": "The Weight of One Breath (Ver. B)",
-          "watch_url": "https://youtu.be/_M6_FDp6WDA",
-          "thumbnail": "https://i.ytimg.com/vi/_M6_FDp6WDA/mqdefault.jpg",
-          "uploaded_at": "2026-04-19",
-          "mood": "Patient, Serene, Ancient, Calm",
-          "genre": "Ambient, World, Meditation Music",
+          "title": "Lanterns of the Unseen Path",
+          "watch_url": "https://youtu.be/f9zyUa53v7E",
+          "thumbnail": "data/covers/song_26.jpg",
+          "uploaded_at": "2026-05-07",
+          "mood": "sacred, grounding, timeless, alive",
+          "genre": "world healing / zen / sacred ambient",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/_M6_FDp6WDA",
+            "youtube": "https://youtu.be/f9zyUa53v7E",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/955525353893894",
-            "instagram": "https://www.instagram.com/reel/DXUXd1dCp5r/"
+            "facebook": "https://www.facebook.com/reel/969763269274771",
+            "instagram": "https://www.instagram.com/reel/DYCIIkejjBY/"
           }
         },
         {
-          "title": "Where the Breath Ends (Ver. B)",
-          "watch_url": "https://youtu.be/9gxRxunFvxg",
-          "thumbnail": "https://i.ytimg.com/vi/9gxRxunFvxg/mqdefault.jpg",
-          "uploaded_at": "2026-04-19",
-          "mood": "Bittersweet",
-          "genre": "Zen Ambient",
+          "title": "Dew on the Threshold of Silence",
+          "watch_url": "https://youtu.be/Etkex1b8kPg",
+          "thumbnail": "data/covers/song_25.jpg",
+          "uploaded_at": "2026-05-07",
+          "mood": "sacred, grounding, timeless, alive",
+          "genre": "world healing / zen / sacred ambient",
           "platforms": [
             "youtube",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/9gxRxunFvxg",
+            "youtube": "https://youtu.be/Etkex1b8kPg",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1117715727198345",
-            "instagram": "https://www.instagram.com/reel/DXUaigFiqls/"
+            "facebook": "https://www.facebook.com/reel/2005266250366131",
+            "instagram": "https://www.instagram.com/reel/DYCIwvrjtiq/"
           }
         },
         {
-          "title": "The Echo of Peace Found",
-          "watch_url": "https://youtu.be/0N0XWeqMwEw",
-          "thumbnail": "https://i.ytimg.com/vi/0N0XWeqMwEw/mqdefault.jpg",
-          "uploaded_at": "2026-04-19",
-          "mood": "Yearning, Peaceful, Serene",
-          "genre": "Zen Ambient",
+          "title": "Vows of the Sunlit Moss",
+          "watch_url": "https://youtu.be/fBZvcjNlrmA",
+          "thumbnail": "data/covers/song_15.jpg",
+          "uploaded_at": "2026-05-06",
+          "mood": "sacred, grounding, timeless",
+          "genre": "world healing / zen / sacred ambient",
           "platforms": [
             "youtube",
+            "tiktok",
             "facebook",
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/0N0XWeqMwEw",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1350884723541940",
-            "instagram": "https://www.instagram.com/reel/DXWT0WbAbgK/"
+            "youtube": "https://youtu.be/fBZvcjNlrmA",
+            "tiktok": "https://www.tiktok.com/@lullwave.official/video/7636794311908150545",
+            "facebook": "https://www.facebook.com/reel/1757097248603745",
+            "instagram": "https://www.instagram.com/reel/DYAH1g_jq5u/"
           }
         }
       ]

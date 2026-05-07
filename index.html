@@ -26,18 +26,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:         #07080c;
-      --surface:    #0e0f16;
-      --surface-2:  #13141e;
-      --border:     rgba(255,255,255,0.07);
-      --text:       #e4e2da;
-      --muted:      rgba(228,226,218,0.42);
-      --accent:     #b8956a;
-      --accent-dim: rgba(184,149,106,0.1);
-      --moth:    #7b9fc8;
-      --paper:   #c9a87b;
-      --amber:   #e8b86d;
-      --moss:    #78b888;
+      --bg:         #05060a;
+      --surface:    rgba(15, 17, 26, 0.6);
+      --surface-2:  rgba(25, 28, 41, 0.8);
+      --border:     rgba(255, 255, 255, 0.08);
+      --text:       #f0efeb;
+      --muted:      rgba(240, 239, 235, 0.5);
+      --accent:     #d4af37; /* Gold/Amber */
+      --accent-dim: rgba(212, 175, 55, 0.15);
+      --moth:       #89b4e9;
+      --paper:      #e0c097;
+      --amber:      #ffb347;
+      --moss:       #81c784;
+      --glass-blur: blur(12px);
     }
 
     html { scroll-behavior: smooth; }
@@ -47,265 +48,206 @@
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.7;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* Noise texture overlay */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 9999;
+      z-index: 9000;
     }
 
-    .glow { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; }
-    .g1 { width: 700px; height: 500px; background: rgba(123,159,200,0.07); top: -200px; left: -200px; }
-    .g2 { width: 500px; height: 500px; background: rgba(120,184,136,0.06); bottom: 0; right: -150px; }
-    .g3 { width: 400px; height: 300px; background: rgba(184,149,106,0.05); top: 40%; left: 30%; }
+    .glow { position: fixed; border-radius: 50%; filter: blur(160px); pointer-events: none; z-index: 0; opacity: 0.6; }
+    .g1 { width: 800px; height: 600px; background: radial-gradient(circle, rgba(123,159,200,0.12) 0%, transparent 70%); top: -300px; left: -200px; }
+    .g2 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(120,184,136,0.1) 0%, transparent 70%); bottom: -100px; right: -150px; }
+    .g3 { width: 500px; height: 400px; background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, transparent 70%); top: 30%; left: 35%; }
 
+    /* ── Navigation ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(7,8,12,0.82);
-      backdrop-filter: blur(20px);
+      padding: 1.25rem 4rem;
+      background: rgba(5, 6, 10, 0.7);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 0.1em; color: var(--text); text-decoration: none; }
-    .nav-logo em { color: var(--accent); font-style: normal; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.12em; color: var(--text); text-decoration: none; }
+    .nav-logo em { color: var(--accent); font-style: normal; font-weight: 400; }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
+    .nav-links a { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .nav-links a:hover { color: var(--text); transform: translateY(-1px); }
 
+    /* ── Hero ── */
     .hero {
-      position: relative; z-index: 1;
+      position: relative; z-index: 10;
       min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 8rem 2rem 4rem;
+      text-align: center; padding: 10rem 2rem 6rem;
     }
-    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.8s 0.35s ease forwards; }
-    .hero-title em { font-style: italic; color: var(--accent); }
-    .hero-sub { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 3rem; opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards; }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.65s ease forwards; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; opacity: 0; animation: fadeUp 1.2s 0.2s ease forwards; }
+    .hero-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(3.5rem, 10vw, 7.5rem); 
+      font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; 
+      margin-bottom: 2.5rem; opacity: 0; 
+      animation: fadeUp 1.2s 0.4s ease forwards; 
+    }
+    .hero-title em { font-style: italic; color: var(--accent); position: relative; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin: 0 auto 4rem; line-height: 1.8; opacity: 0; animation: fadeUp 1.2s 0.6s ease forwards; }
+    .hero-cta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 1.2s 0.8s ease forwards; }
 
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 3px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
-    .btn-primary { background: var(--accent); color: #07080c; font-weight: 500; }
-    .btn-primary:hover { background: #c9a87b; }
-    .btn-ghost { border: 1px solid var(--border); color: var(--muted); }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+    .btn { 
+      display: inline-flex; align-items: center; gap: 0.75rem; 
+      padding: 1rem 2.25rem; border-radius: 2px; 
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; 
+      text-decoration: none; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      font-family: 'DM Sans', sans-serif; font-weight: 500;
+    }
+    .btn-primary { background: var(--accent); color: #05060a; box-shadow: 0 10px 30px rgba(212,175,55,0.2); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212,175,55,0.3); background: #eac04d; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: rgba(255,255,255,0.03); backdrop-filter: var(--glass-blur); }
+    .btn-ghost:hover { border-color: var(--muted); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
 
-    .ticker-wrap { position: absolute; bottom: 2.5rem; left: 0; right: 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.6rem 0; opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards; }
-    .ticker { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 30s linear infinite; }
-    .ticker span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .ticker span em { color: var(--accent); font-style: normal; }
+    /* ── Ticker ── */
+    .ticker-wrap { position: absolute; bottom: 3rem; left: 0; right: 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.8rem 0; opacity: 0; animation: fadeUp 1.2s 1s ease forwards; background: rgba(255,255,255,0.02); }
+    .ticker { display: flex; gap: 5rem; white-space: nowrap; animation: ticker 40s linear infinite; }
+    .ticker span { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); opacity: 0.7; }
+    .ticker span em { color: var(--accent); font-style: normal; font-weight: 400; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .section { position: relative; z-index: 1; padding: 7rem 3rem; max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.25rem; }
-    .section-sub { color: var(--muted); max-width: 520px; margin-bottom: 3.5rem; }
+    /* ── Sections ── */
+    .section { position: relative; z-index: 10; padding: 10rem 4rem; max-width: 1400px; margin: 0 auto; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: block; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+    .section-sub { color: var(--muted); max-width: 600px; margin-bottom: 5rem; font-size: 1rem; line-height: 1.8; }
 
-    /* ── Channels ── */
+    /* ── Channels Grid ── */
     #channels { border-top: 1px solid var(--border); }
-    .channels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .channel-card { background: var(--surface); padding: 2.5rem; text-decoration: none; color: inherit; transition: background 0.25s; display: flex; flex-direction: column; gap: 1rem; position: relative; overflow: hidden; }
-    .channel-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity 0.25s; }
-    .channel-card:hover { background: var(--surface-2); }
-    .channel-card:hover::before { opacity: 1; }
-    .channel-card.moth::before  { background: var(--moth); }
-    .channel-card.paper::before { background: var(--paper); }
-    .channel-card.amber::before { background: var(--amber); }
-    .channel-card.moss::before  { background: var(--moss); }
-    .channel-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
-    .moth  .channel-icon { background: rgba(123,159,200,0.12); }
-    .paper .channel-icon { background: rgba(201,168,123,0.12); }
-    .amber .channel-icon { background: rgba(232,184,109,0.12); }
-    .moss  .channel-icon { background: rgba(120,184,136,0.12); }
-    .channel-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; }
-    .moth  .channel-name { color: var(--moth); }
+    .channels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    .channel-card { 
+      background: var(--surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+      padding: 3.5rem 3rem; text-decoration: none; color: inherit; 
+      border: 1px solid var(--border); border-radius: 12px;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      display: flex; flex-direction: column; gap: 1.5rem; position: relative; overflow: hidden; 
+    }
+    .channel-card::after { 
+        content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(255,255,255,0.03), transparent); opacity: 0; transition: opacity 0.5s; 
+    }
+    .channel-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.15); background: var(--surface-2); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+    .channel-card:hover::after { opacity: 1; }
+
+    .channel-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; transition: transform 0.5s ease; }
+    .channel-card:hover .channel-icon { transform: scale(1.1) rotate(5deg); }
+    
+    .moth  .channel-icon { background: rgba(137,180,233,0.15); color: var(--moth); box-shadow: 0 0 20px rgba(137,180,233,0.1); }
+    .paper .channel-icon { background: rgba(224,192,151,0.15); color: var(--paper); }
+    .amber .channel-icon { background: rgba(255,179,71,0.15); color: var(--amber); }
+    .moss  .channel-icon { background: rgba(129,199,132,0.15); color: var(--moss); }
+
+    .channel-name { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; margin-top: 0.5rem; }
+    .moth .channel-name  { color: var(--moth); }
     .paper .channel-name { color: var(--paper); }
     .amber .channel-name { color: var(--amber); }
-    .moss  .channel-name { color: var(--moss); }
-    .channel-tag { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .channel-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; }
-    .channel-arrow { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.5rem; opacity: 0; transition: opacity 0.2s; }
-    .channel-card:hover .channel-arrow { opacity: 1; }
+    .moss .channel-name  { color: var(--moss); }
+
+    .channel-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .channel-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; flex: 1; font-weight: 300; }
+    .channel-arrow { font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0.6; transition: all 0.3s; }
+    .channel-card:hover .channel-arrow { opacity: 1; transform: translateX(5px); }
 
     /* ── Latest Releases ── */
-    #latest { border-top: 1px solid var(--border); }
+    #latest { border-top: 1px solid var(--border); background: radial-gradient(circle at 70% 20%, rgba(212,175,55,0.02), transparent); }
+    .latest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+    .latest-channel { display: flex; flex-direction: column; gap: 1.25rem; }
+    .latest-channel-header { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+    .latest-channel-dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 10px currentColor; }
+    .latest-channel-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; letter-spacing: 0.05em; }
 
-    .latest-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+    .latest-track { 
+      display: flex; gap: 1.25rem; align-items: center; padding: 1rem; border-radius: 12px; color: inherit; text-decoration: none; 
+      border: 1px solid transparent; transition: all 0.4s ease; background: transparent;
     }
+    .latest-track:hover { background: rgba(255,255,255,0.03); border-color: var(--border); transform: translateX(8px); }
 
-    .latest-channel {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .latest-channel-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0.25rem;
-    }
-
-    .latest-channel-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .latest-channel-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-    .latest-track {
-      display: flex;
-      gap: 0.85rem;
-      align-items: flex-start;
-      padding: 0.75rem;
-      border-radius: 4px;
-      color: inherit;
-      border: 1px solid transparent;
-    }
-
-    .latest-thumb {
-      width: 64px; height: 64px;
-      border-radius: 3px;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: var(--surface-2);
-    }
-
-    .latest-thumb-placeholder {
-      width: 64px; height: 64px;
-      border-radius: 3px;
-      background: var(--surface-2);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      opacity: 0.5;
+    .latest-thumb-wrap { position: relative; flex-shrink: 0; width: 80px; height: 80px; border-radius: 8px; overflow: hidden; }
+    .latest-thumb { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .latest-track:hover .latest-thumb { transform: scale(1.1); }
+    .latest-thumb-placeholder { 
+      width: 100%; height: 100%; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0.4; 
     }
 
     .latest-info { flex: 1; min-width: 0; }
-
-    .latest-title {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 0.25rem;
+    .latest-title { font-size: 0.95rem; font-weight: 400; color: var(--text); margin-bottom: 0.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .latest-meta { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.6rem; opacity: 0.8; }
+    .latest-platforms { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .latest-platform-badge { 
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; 
+      padding: 0.2rem 0.6rem; border-radius: 3px; background: rgba(255,255,255,0.04); color: var(--muted); 
+      border: 1px solid var(--border); transition: all 0.3s;
     }
-
-    .latest-meta {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .latest-platforms {
-      display: flex;
-      gap: 0.3rem;
-      margin-top: 0.35rem;
-      flex-wrap: wrap;
-    }
-
-    .latest-platform-badge {
-      font-size: 0.62rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.45rem;
-      border-radius: 2px;
-      background: var(--surface-2);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      text-decoration: none;
-    }
-    a.latest-platform-badge:hover { background: var(--surface); color: var(--text); }
-
-    /* Skeleton loader */
-    .latest-skeleton {
-      display: flex;
-      gap: 0.85rem;
-      align-items: flex-start;
-      padding: 0.75rem;
-    }
-    .skel-thumb { width: 64px; height: 64px; border-radius: 3px; background: var(--surface-2); animation: shimmer 1.5s ease-in-out infinite; flex-shrink: 0; }
-    .skel-lines { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; padding-top: 4px; }
-    .skel-line { height: 10px; border-radius: 2px; background: var(--surface-2); animation: shimmer 1.5s ease-in-out infinite; }
-    .skel-line.short { width: 55%; }
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.7; }
-    }
-
-    .latest-empty {
-      padding: 1.5rem 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-style: italic;
-    }
+    .latest-platform-badge:hover { background: var(--accent); color: #05060a; border-color: var(--accent); transform: translateY(-1px); }
 
     /* ── Platforms ── */
     #platforms { border-top: 1px solid var(--border); }
-    .platforms-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .platform-link { display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.75rem 1.4rem; border: 1px solid var(--border); border-radius: 3px; text-decoration: none; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; transition: all 0.2s; background: var(--surface); }
-    .platform-link:hover { border-color: rgba(255,255,255,0.18); color: var(--text); background: var(--surface-2); }
-    .platform-link svg { width: 16px; height: 16px; fill: currentColor; opacity: 0.7; }
-    .platform-link.yt:hover  { border-color: #ff4444; color: #ff6666; }
-    .platform-link.tt:hover  { border-color: #69c9d0; color: #69c9d0; }
-    .platform-link.fb:hover  { border-color: #4267b2; color: #6b8fd4; }
-    .platform-link.ig:hover  { border-color: #e1306c; color: #e1306c; }
+    .platforms-grid { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .platform-link { 
+      display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 1.75rem; 
+      border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); 
+      font-size: 0.85rem; letter-spacing: 0.08em; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      background: var(--surface); backdrop-filter: var(--glass-blur);
+    }
+    .platform-link:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.25); background: var(--surface-2); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+    .platform-link svg { width: 18px; height: 18px; fill: currentColor; transition: transform 0.4s; }
+    .platform-link:hover svg { transform: scale(1.15) rotate(-5deg); }
 
-    /* ── About ── */
+    /* ── Stats & About ── */
     #about { border-top: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-    .about-text p { color: var(--muted); margin-bottom: 1.1rem; font-size: 0.9rem; }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
-    .stat { background: var(--surface); padding: 1.75rem; }
-    .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
-    .stat-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6rem; align-items: center; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat { background: var(--surface); padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid var(--border); backdrop-filter: var(--glass-blur); transition: transform 0.4s; }
+    .stat:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15); }
+    .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
 
-    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; }
-    .footer-logo em { color: var(--accent); font-style: normal; }
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-copy { font-size: 0.7rem; color: rgba(228,226,218,0.22); letter-spacing: 0.06em; }
+    /* ── Footer ── */
+    footer { position: relative; z-index: 100; border-top: 1px solid var(--border); padding: 5rem 4rem; display: flex; flex-direction: column; align-items: center; gap: 3rem; background: rgba(5,6,10,0.9); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; }
+    .footer-links { display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.15); letter-spacing: 0.1em; margin-top: 2rem; }
 
+    /* Animations */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @media (max-width: 1024px) {
+      nav { padding: 1rem 2rem; }
+      .section { padding: 7rem 2rem; }
+      .latest-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+    }
+
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .section { padding: 5rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; }
-      .hero { padding: 7rem 1.5rem 5rem; }
-      .latest-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-title { font-size: 4rem; }
+      .btn { width: 100%; justify-content: center; }
+      .stats-grid { grid-template-columns: 1fr; }
     }
   </style>
+ gap: 1.5rem; }
+    }
+  </style>
+<script id="lullwave-data">window.LULLWAVE_DATA = {"updated_at": "2026-05-07T12:00:44Z", "channels": {"artist_c": {"name": "Amber & Vinyl", "category": "chill", "icon": "🎵", "color": "#FFD54F", "category_tag": "acoustic jazz / bossa nova / late night / warm, nostalgic, intimate, bittersweet / evening wind-down / cafe / nostalgic chill", "description": "A small jazz bar, closing time. Two people remain at a corner table. The pianist plays quietly to himself — not performing, just thinking out loud. Outside, the street is wet from earlier rain. The city is warm and amber. This music knows something about time passing. It is not sad about it.", "youtube_channel": "https://youtube.com/@ambervinyl", "tiktok_url": "https://www.tiktok.com/@lullwave.official", "facebook_url": "https://www.facebook.com/lullwavefm/", "instagram_url": "https://www.instagram.com/lullwavefm/", "latest": [{"title": "Neon Reflections on Wet Pavement", "watch_url": "https://youtu.be/q9lxt21Xx0k", "thumbnail": "data/covers/song_23.jpg", "uploaded_at": "2026-05-07", "mood": "warm, nostalgic, intimate, bittersweet", "genre": "acoustic jazz / bossa nova / late night", "platforms": ["youtube", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtu.be/q9lxt21Xx0k", "tiktok": null, "facebook": "https://www.facebook.com/reel/1694953601535679", "instagram": "https://www.instagram.com/reel/DYCKIufjoDY/"}}, {"title": "Letters to a City Unseen", "watch_url": "https://youtu.be/8nV6EACgD3A", "thumbnail": "data/covers/song_22.jpg", "uploaded_at": "2026-05-07", "mood": "warm, nostalgic, intimate, bittersweet", "genre": "acoustic jazz / bossa nova / late night", "platforms": ["youtube", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtu.be/8nV6EACgD3A", "tiktok": null, "facebook": "https://www.facebook.com/reel/973238928972712", "instagram": "https://www.instagram.com/reel/DYCJLnEDn39/"}}, {"title": "Stained Glass at Midnight", "watch_url": "https://youtube.com/@ambervinyl", "thumbnail": "data/covers/song_21.jpg", "uploaded_at": "2026-05-07", "mood": "warm, nostalgic, intimate, bittersweet", "genre": "acoustic jazz / bossa nova / late night", "platforms": ["youtube", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtube.com/@ambervinyl", "tiktok": null, "facebook": "https://www.facebook.com/reel/836713016102880", "instagram": "https://www.instagram.com/reel/DYCJtR1jvnK/"}}]}, "artist_d": {"name": "Moss Temple", "category": "healing", "icon": "🎵", "color": "#A8E6CF", "category_tag": "world healing / zen / sacred ambient / sacred, grounding, timeless, alive / yoga / healing / spiritual practice / deep meditation", "description": "A stone temple on a misty hillside at dawn. Ancient. Moss on the walls. A monk strikes a singing bowl — the sound fills the space, then slowly dissolves into forest. Somewhere outside, a shakuhachi begins. It is not playing a song. It is breathing. Two instruments speak to each other across the silence — like two old friends sitting together, no need to fill every moment with words. The forest listens. You are very small, and very safe.", "youtube_channel": "https://www.youtube.com/@LullwaveFM", "tiktok_url": "https://www.tiktok.com/@lullwave.official", "facebook_url": "https://www.facebook.com/lullwavefm/", "instagram_url": "https://www.instagram.com/lullwavefm/", "latest": [{"title": "Lanterns of the Unseen Path", "watch_url": "https://youtu.be/f9zyUa53v7E", "thumbnail": "data/covers/song_26.jpg", "uploaded_at": "2026-05-07", "mood": "sacred, grounding, timeless, alive", "genre": "world healing / zen / sacred ambient", "platforms": ["youtube", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtu.be/f9zyUa53v7E", "tiktok": null, "facebook": "https://www.facebook.com/reel/969763269274771", "instagram": "https://www.instagram.com/reel/DYCIIkejjBY/"}}, {"title": "Dew on the Threshold of Silence", "watch_url": "https://youtu.be/Etkex1b8kPg", "thumbnail": "data/covers/song_25.jpg", "uploaded_at": "2026-05-07", "mood": "sacred, grounding, timeless, alive", "genre": "world healing / zen / sacred ambient", "platforms": ["youtube", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtu.be/Etkex1b8kPg", "tiktok": null, "facebook": "https://www.facebook.com/reel/2005266250366131", "instagram": "https://www.instagram.com/reel/DYCIwvrjtiq/"}}, {"title": "Vows of the Sunlit Moss", "watch_url": "https://youtu.be/fBZvcjNlrmA", "thumbnail": "data/covers/song_15.jpg", "uploaded_at": "2026-05-06", "mood": "sacred, grounding, timeless", "genre": "world healing / zen / sacred ambient", "platforms": ["youtube", "tiktok", "facebook", "instagram"], "platform_urls": {"youtube": "https://youtu.be/fBZvcjNlrmA", "tiktok": "https://www.tiktok.com/@lullwave.official/video/7636794311908150545", "facebook": "https://www.facebook.com/reel/1757097248603745", "instagram": "https://www.instagram.com/reel/DYAH1g_jq5u/"}}]}}};</script>
 </head>
 <body>
 
@@ -328,7 +270,7 @@
   <section class="hero">
     <p class="hero-eyebrow">AI Ambient Music Studio</p>
     <h1 class="hero-title">Music that <em>breathes</em><br>with you.</h1>
-    <p class="hero-sub">Four mood channels. Continuous original soundscapes for sleep, study, chill, and healing — curated daily.</p>
+    <p class="hero-sub"><span class="dynamic-count">2</span> mood channels. Continuous original soundscapes for sleep, study, chill, and healing — curated daily.</p>
     <div class="hero-cta">
       <a href="https://www.youtube.com/channel/UCa9yRWxRGJZRBqIp-vA9WPQ" target="_blank" rel="noopener" class="btn btn-primary">▶ Start Listening</a>
       <a href="#channels" class="btn btn-ghost">Explore Channels</a>
@@ -361,34 +303,11 @@
 
   <!-- Channels -->
   <section id="channels" class="section">
-    <p class="section-label">Four Channels</p>
+    <p class="section-label"><span class="dynamic-count-text">Two</span> Channels</p>
     <h2 class="section-title">Find your frequency.</h2>
     <p class="section-sub">Each channel has a locked sonic identity — consistent instruments, mood, and atmosphere across every track.</p>
-    <div class="channels-grid">
-      <a href="https://www.youtube.com/channel/UCgENQuysCTfeoIAwcZd5n8A" target="_blank" rel="noopener" class="channel-card moth">
-        <div class="channel-icon">🌙</div>
-        <div><div class="channel-name">The Midnight Moth</div><div class="channel-tag">Sleep · Deep Relaxation</div></div>
-        <p class="channel-desc">Ethereal piano, harp, and singing bowls woven into soft drifting soundscapes. Designed to quiet the mind and guide you into deep, restorative sleep.</p>
-        <span class="channel-arrow">Watch on YouTube →</span>
-      </a>
-      <a href="#" class="channel-card paper" style="cursor:default; opacity:0.6;">
-        <div class="channel-icon">📖</div>
-        <div><div class="channel-name">Paper & Ink Radio</div><div class="channel-tag">Study · Focus · Work</div></div>
-        <p class="channel-desc">Warm lo-fi grooves, soft Rhodes, and vinyl warmth — the soundtrack of deep concentration and creative flow. Coming soon.</p>
-        <span class="channel-arrow">Coming soon</span>
-      </a>
-      <a href="#" class="channel-card amber" style="cursor:default; opacity:0.6;">
-        <div class="channel-icon">🌆</div>
-        <div><div class="channel-name">Amber & Vinyl</div><div class="channel-tag">Chill · Café · Night Drive</div></div>
-        <p class="channel-desc">Late-night jazz brushstrokes, acoustic warmth, and the quiet hum of a city after rain. Coming soon.</p>
-        <span class="channel-arrow">Coming soon</span>
-      </a>
-      <a href="https://www.youtube.com/channel/UCa9yRWxRGJZRBqIp-vA9WPQ" target="_blank" rel="noopener" class="channel-card moss">
-        <div class="channel-icon">🍃</div>
-        <div><div class="channel-name">Moss Temple</div><div class="channel-tag">Yoga · Healing · Zen</div></div>
-        <p class="channel-desc">Shakuhachi flutes, handpan, and Tibetan singing bowls in call-and-response conversation. Ancient sounds for modern stillness.</p>
-        <span class="channel-arrow">Watch on YouTube →</span>
-      </a>
+    <div class="channels-grid" id="channels-grid">
+      <!-- Dynamically populated from JSON -->
     </div>
   </section>
 
@@ -396,45 +315,9 @@
   <section id="latest" class="section">
     <p class="section-label">Fresh Drops</p>
     <h2 class="section-title">Latest releases.</h2>
-    <p class="section-sub">New tracks added daily across all four channels. Updated automatically.</p>
+    <p class="section-sub">New tracks added daily across <span class="dynamic-count-text-lower">two</span> channels. Updated automatically.</p>
     <div class="latest-grid" id="latest-grid">
-      <!-- Skeleton placeholders — replaced by JS -->
-      <div class="latest-channel" id="skel-a">
-        <div class="latest-channel-header">
-          <div class="latest-channel-dot" style="background:#7b9fc8"></div>
-          <span class="latest-channel-name" style="color:#7b9fc8">The Midnight Moth</span>
-        </div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-      </div>
-      <div class="latest-channel" id="skel-b">
-        <div class="latest-channel-header">
-          <div class="latest-channel-dot" style="background:#c9a87b"></div>
-          <span class="latest-channel-name" style="color:#c9a87b">Paper &amp; Ink Radio</span>
-        </div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-      </div>
-      <div class="latest-channel" id="skel-c">
-        <div class="latest-channel-header">
-          <div class="latest-channel-dot" style="background:#e8b86d"></div>
-          <span class="latest-channel-name" style="color:#e8b86d">Amber &amp; Vinyl</span>
-        </div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-      </div>
-      <div class="latest-channel" id="skel-d">
-        <div class="latest-channel-header">
-          <div class="latest-channel-dot" style="background:#78b888"></div>
-          <span class="latest-channel-name" style="color:#78b888">Moss Temple</span>
-        </div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-        <div class="latest-skeleton"><div class="skel-thumb"></div><div class="skel-lines"><div class="skel-line"></div><div class="skel-line short"></div></div></div>
-      </div>
+      <!-- Dynamically populated from JSON -->
     </div>
   </section>
 
@@ -443,15 +326,8 @@
     <p class="section-label">Available On</p>
     <h2 class="section-title">Listen everywhere.</h2>
     <p class="section-sub">Find Lullwave FM across all major platforms — from long-form compilations to daily short clips.</p>
-    <div class="platforms-grid">
-      <a href="https://www.youtube.com/channel/UCa9yRWxRGJZRBqIp-vA9WPQ" target="_blank" rel="noopener" class="platform-link yt">
-        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
-        Moss Temple
-      </a>
-      <a href="https://www.youtube.com/channel/UCgENQuysCTfeoIAwcZd5n8A" target="_blank" rel="noopener" class="platform-link yt">
-        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
-        The Midnight Moth
-      </a>
+    <div class="platforms-grid" id="platforms-grid">
+      <!-- Dynamically populated from JSON -->
       <a href="https://www.tiktok.com/@lullwave.official" target="_blank" rel="noopener" class="platform-link tt">
         <svg viewBox="0 0 24 24"><path d="M19.6 3.3a4.5 4.5 0 0 1-3-2.8H13v13.1a2.2 2.2 0 0 1-2.2 2 2.2 2.2 0 0 1-2.2-2.2 2.2 2.2 0 0 1 2.2-2.2c.2 0 .4 0 .6.1V8.1a6.4 6.4 0 0 0-.6 0 6.3 6.3 0 0 0-6.3 6.3 6.3 6.3 0 0 0 6.3 6.3 6.3 6.3 0 0 0 6.3-6.3V8.5a8.4 8.4 0 0 0 4.9 1.6V6.7a4.5 4.5 0 0 1-2.4-.7V3.3z"/></svg>
         TikTok @lullwave.official
@@ -465,12 +341,8 @@
         Instagram @lullwavefm
       </a>
       <a href="#" class="platform-link" style="opacity:0.45; cursor:default;">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 8.4h-1.8c-.7 0-.8.3-.8.8v1h2.6l-.3 2.6h-2.3V20h-2.7v-7.2H10V10.2h2.2V8.9c0-2.2 1.3-3.4 3.3-3.4.9 0 1.8.1 2 .1v2.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm1.8 17h-1.6V10.2H14v6.8zm-1.8-8.4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
         Spotify — Coming soon
-      </a>
-      <a href="#" class="platform-link" style="opacity:0.45; cursor:default;">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm3.6 6.8c1.5 0 2.6.5 3.4 1.4l-1.4 1.4c-.5-.6-1.1-.9-2-.9-1.6 0-2.8 1.2-2.8 2.9 0 1.7 1.2 2.9 2.8 2.9 1 0 1.7-.4 2.1-.8l1.4 1.4C18.2 16.1 17 17 15.6 17c-2.8 0-4.9-2-4.9-4.4 0-2.5 2.1-4.4 4.9-4.4v.6zM7.8 6.9H9.4l2.8 5.5-2.8 5.5H7.8L10.6 12 7.8 6.9z"/></svg>
-        Apple Music — Coming soon
       </a>
     </div>
   </section>
@@ -488,7 +360,7 @@
         <a href="mailto:lullwavefm@gmail.com" class="btn btn-ghost" style="display:inline-flex;">Get in touch</a>
       </div>
       <div class="stats-grid">
-        <div class="stat"><div class="stat-val">4</div><div class="stat-label">Mood Channels</div></div>
+        <div class="stat"><div class="stat-val" id="stat-channels">2</div><div class="stat-label">Mood Channels</div></div>
         <div class="stat"><div class="stat-val">Daily</div><div class="stat-label">New Releases</div></div>
         <div class="stat"><div class="stat-val">432Hz</div><div class="stat-label">Tuning Standard</div></div>
         <div class="stat"><div class="stat-val">5+</div><div class="stat-label">Platforms</div></div>
@@ -510,10 +382,8 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ── Latest Releases — fetch from static JSON ────────────────────────────
-    const JSON_URL = '/data/latest_releases.json'; // repo root: data/latest_releases.json
-
-    const CHANNEL_ORDER = ['artist_a', 'artist_b', 'artist_c', 'artist_d'];
+    // ── Data Fetch — fetch from static JSON ────────────────────────────
+    const JSON_URL = 'data/latest_releases.json';
 
     const PLATFORM_LABELS = {
       youtube:   'YT',
@@ -535,20 +405,7 @@
     }
 
     function cleanTitle(title) {
-      // Strip internal version tags: (Ver. A), (Ver. B), (Version A/B)
       return (title || '').replace(/\s*\(Ver\.\s*[AB]\)\s*/gi, '').replace(/\s*\(Version\s*[AB]\)\s*/gi, '').trim();
-    }
-
-    function truncateMood(mood) {
-      // Show first mood value only — "Solitary, Peaceful, Reflective" → "Solitary"
-      if (!mood) return '';
-      const first = mood.split(/[,/]/)[0].trim();
-      return first.length > 18 ? first.slice(0, 16) + '…' : first;
-    }
-
-    function cleanTitle(title) {
-      return title.replace(/\s*\(Ver\.\s*[AB]\)\s*/gi, '')
-                  .replace(/\s*\(Version\s*[AB]\)\s*/gi, '').trim();
     }
 
     function shortMood(mood) {
@@ -556,85 +413,163 @@
       return mood.split(',')[0].split('/')[0].trim();
     }
 
-    function renderChannel(artistId, ch) {
-      const skeletonId = `skel-${artistId.slice(-1)}`;
-      const skeletonEl = document.getElementById(skeletonId);
-      if (!skeletonEl) return;
+    function renderChannelsGrid(channels) {
+      const grid = document.getElementById('channels-grid');
+      if (!grid) return;
 
-      const tracks = ch.latest || [];
+      grid.innerHTML = Object.entries(channels).map(([id, ch]) => {
+        const url = ch.youtube_channel || '#';
+        const isComingSoon = !ch.latest || ch.latest.length === 0;
+        const styleAttr = isComingSoon ? 'style="opacity:0.6; cursor:default;"' : '';
+        const arrow = isComingSoon ? 'Coming soon' : 'Watch on YouTube →';
 
-      if (!tracks.length) {
-        skeletonEl.style.display = 'none';
+        return `
+          <a href="${url}" target="_blank" rel="noopener" class="channel-card ${id.replace('artist_', '')}" ${styleAttr}>
+            <div class="channel-icon">${ch.icon}</div>
+            <div class="channel-content">
+              <div class="channel-name">${ch.name}</div>
+              <div class="channel-tag">${ch.category_tag}</div>
+              <p class="channel-desc">${ch.description}</p>
+            </div>
+            <span class="channel-arrow">${arrow}</span>
+          </a>`;
+      }).join('');
+    }
+
+    function renderLatestGrid(channels) {
+      const grid = document.getElementById('latest-grid');
+      if (!grid) return;
+
+      grid.innerHTML = Object.entries(channels).map(([id, ch]) => {
+        const tracks = ch.latest || [];
+        if (!tracks.length) return '';
+
+        const header = `
+          <div class="latest-channel-header">
+            <div class="latest-channel-dot" style="background:${ch.color}"></div>
+            <span class="latest-channel-name" style="color:${ch.color}">${ch.name}</span>
+          </div>`;
+
+        const tracksHtml = tracks.map(t => {
+          const displayTitle = cleanTitle(t.title);
+          const thumb = t.thumbnail
+            ? `<img class="latest-thumb" src="${t.thumbnail}" alt="${displayTitle}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+              + `<div class="latest-thumb-placeholder" style="display:none">${ch.icon}</div>`
+            : `<div class="latest-thumb-placeholder">${ch.icon}</div>`;
+
+          const platforms = (t.platforms || [])
+            .map(p => {
+              const url = (t.platform_urls || {})[p];
+              const label = PLATFORM_LABELS[p] || p;
+              return url 
+                ? `<a class="latest-platform-badge" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${label}</a>`
+                : `<span class="latest-platform-badge">${label}</span>`;
+            })
+            .join('');
+
+          const dateStr = relativeDate(t.uploaded_at);
+          const meta = [t.genre, shortMood(t.mood)].filter(Boolean).join(' · ');
+
+          return `
+            <div class="latest-track">
+              <div class="latest-thumb-wrap">
+                ${thumb}
+              </div>
+              <div class="latest-info">
+                <div class="latest-title">${displayTitle}</div>
+                <div class="latest-meta">${[meta, dateStr].filter(Boolean).join(' · ')}</div>
+                ${platforms ? `<div class="latest-platforms">${platforms}</div>` : ''}
+              </div>
+            </div>`;
+        }).join('');
+
+        return `<div class="latest-channel">${header}${tracksHtml}</div>`;
+      }).join('');
+    }
+
+    const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+
+    function renderPlatforms(channels) {
+      const grid = document.getElementById('platforms-grid');
+      if (!grid) return;
+      
+      const channelLinks = Object.entries(channels)
+        .filter(([id, ch]) => ch.youtube_channel && ch.latest && ch.latest.length > 0)
+        .map(([id, ch]) => `
+          <a href="${ch.youtube_channel}" target="_blank" rel="noopener" class="platform-link yt">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+            ${ch.name}
+          </a>
+        `).join('');
+
+      const standardSocials = `
+        <a href="https://www.tiktok.com/@lullwave.official" target="_blank" rel="noopener" class="platform-link tt">
+          <svg viewBox="0 0 24 24"><path d="M19.6 3.3a4.5 4.5 0 0 1-3-2.8H13v13.1a2.2 2.2 0 0 1-2.2 2 2.2 2.2 0 0 1-2.2-2.2 2.2 2.2 0 0 1 2.2-2.2c.2 0 .4 0 .6.1V8.1a6.4 6.4 0 0 0-.6 0 6.3 6.3 0 0 0-6.3 6.3 6.3 6.3 0 0 0 6.3 6.3 6.3 6.3 0 0 0 6.3-6.3V8.5a8.4 8.4 0 0 0 4.9 1.6V6.7a4.5 4.5 0 0 1-2.4-.7V3.3z"/></svg>
+          TikTok @lullwave.official
+        </a>
+        <a href="https://web.facebook.com/people/Lullwavefm/61579424772586/" target="_blank" rel="noopener" class="platform-link fb">
+          <svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg>
+          Facebook — LullwaveFM
+        </a>
+        <a href="https://www.instagram.com/lullwavefm/" target="_blank" rel="noopener" class="platform-link ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram @lullwavefm
+        </a>
+        <a href="#" class="platform-link" style="opacity:0.45; cursor:default;">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm1.8 17h-1.6V10.2H14v6.8zm-1.8-8.4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
+          Spotify — Coming soon
+        </a>`;
+
+      grid.innerHTML = channelLinks + standardSocials;
+    }
+
+    async function loadData() {
+      // Prioritize pre-injected data (for direct file:// access)
+      if (window.LULLWAVE_DATA) {
+        console.log('Using pre-injected data');
+        processData(window.LULLWAVE_DATA);
         return;
       }
 
-      const header = `
-        <div class="latest-channel-header">
-          <div class="latest-channel-dot" style="background:${ch.color}"></div>
-          <span class="latest-channel-name" style="color:${ch.color}">${ch.name}</span>
-        </div>`;
-
-      const tracksHtml = tracks.map(t => {
-        const displayTitle = cleanTitle(t.title);
-
-        const thumb = t.thumbnail
-          ? `<img class="latest-thumb" src="${t.thumbnail}" alt="${displayTitle}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-            + `<div class="latest-thumb-placeholder" style="display:none">${ch.icon}</div>`
-          : `<div class="latest-thumb-placeholder">${ch.icon}</div>`;
-
-        const platforms = (t.platforms || [])
-          .map(p => {
-            const url = (t.platform_urls || {})[p];
-            const label = PLATFORM_LABELS[p] || p;
-            if (url) {
-              return `<a class="latest-platform-badge" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${label}</a>`;
-            }
-            return `<span class="latest-platform-badge">${label}</span>`;
-          })
-          .join('');
-
-        const dateStr = relativeDate(t.uploaded_at);
-        const meta = [t.genre, shortMood(t.mood)].filter(Boolean).join(' · ');
-        const url = t.watch_url || ch.youtube_channel || '#';
-
-        return `
-          <div class="latest-track">
-            ${thumb}
-            <div class="latest-info">
-              <div class="latest-title">${displayTitle}</div>
-              <div class="latest-meta">${[meta, dateStr].filter(Boolean).join(' · ')}</div>
-              ${platforms ? `<div class="latest-platforms">${platforms}</div>` : ''}
-            </div>
-          </div>`;
-      }).join('');
-
-      skeletonEl.innerHTML = header + tracksHtml;
-    }
-
-    async function loadLatest() {
       try {
-        // Cache-bust max 24h (GitHub Pages CDN caches aggressively)
-        const cacheBust = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
-        const res = await fetch(`${JSON_URL}?v=${cacheBust}`);
+        const res = await fetch(`${JSON_URL}?v=${Date.now()}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        const channels = data.channels || {};
-        CHANNEL_ORDER.forEach(id => {
-          if (channels[id]) renderChannel(id, channels[id]);
-        });
+        processData(data);
       } catch (err) {
-        // Graceful fallback — hide section entirely if JSON missing (fresh repo)
-        console.warn('Latest releases not available yet:', err.message);
-        const section = document.getElementById('latest');
-        if (section) section.style.display = 'none';
+        console.warn('Data fetch failed:', err.message);
       }
     }
 
-    // Load after paint to not block render
+    function processData(data) {
+      const channels = data.channels || {};
+      
+      renderChannelsGrid(channels);
+      renderLatestGrid(channels);
+      renderPlatforms(channels);
+
+      const activeChannels = Object.entries(channels).filter(([id, ch]) => ch.latest && ch.latest.length > 0);
+      const totalCount = Object.keys(channels).length;
+      
+      // Update stats
+      document.querySelectorAll('.stat-val').forEach((el, idx) => {
+         if (idx === 0) el.textContent = totalCount;
+      });
+
+      // Update all other dynamic counts
+      document.querySelectorAll('.dynamic-count').forEach(el => el.textContent = totalCount);
+      document.querySelectorAll('.dynamic-count-text').forEach(el => {
+        el.textContent = NUMBER_WORDS[totalCount] || totalCount;
+      });
+      document.querySelectorAll('.dynamic-count-text-lower').forEach(el => {
+        el.textContent = (NUMBER_WORDS[totalCount] || totalCount).toLowerCase();
+      });
+    }
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadLatest);
+      document.addEventListener('DOMContentLoaded', loadData);
     } else {
-      loadLatest();
+      loadData();
     }
   </script>
 </body>
