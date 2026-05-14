@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-07T12:00:44Z",
+  "updated_at": "2026-05-13T13:48:33Z",
   "channels": {
     "artist_c": {
       "name": "Amber & Vinyl",
@@ -14,10 +14,10 @@
       "instagram_url": "https://www.instagram.com/lullwavefm/",
       "latest": [
         {
-          "title": "Neon Reflections on Wet Pavement",
-          "watch_url": "https://youtu.be/q9lxt21Xx0k",
-          "thumbnail": "data/covers/song_23.jpg",
-          "uploaded_at": "2026-05-07",
+          "title": "Portraits in Sepia Ink",
+          "watch_url": "https://youtu.be/jQmi6MXpERo",
+          "thumbnail": "data/covers/song_87.jpg",
+          "uploaded_at": "2026-05-13",
           "mood": "warm, nostalgic, intimate, bittersweet",
           "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
@@ -26,17 +26,17 @@
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/q9lxt21Xx0k",
+            "youtube": "https://youtu.be/jQmi6MXpERo",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/1694953601535679",
-            "instagram": "https://www.instagram.com/reel/DYCKIufjoDY/"
+            "facebook": "https://www.facebook.com/reel/1531129658663320",
+            "instagram": "https://www.instagram.com/reel/DYR-xN8DAtj/"
           }
         },
         {
-          "title": "Letters to a City Unseen",
-          "watch_url": "https://youtu.be/8nV6EACgD3A",
-          "thumbnail": "data/covers/song_22.jpg",
-          "uploaded_at": "2026-05-07",
+          "title": "What the Bartender Already Knows",
+          "watch_url": "https://youtu.be/wY2mnHLN16M",
+          "thumbnail": "data/covers/song_85.jpg",
+          "uploaded_at": "2026-05-13",
           "mood": "warm, nostalgic, intimate, bittersweet",
           "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
@@ -45,17 +45,17 @@
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/8nV6EACgD3A",
+            "youtube": "https://youtu.be/wY2mnHLN16M",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/973238928972712",
-            "instagram": "https://www.instagram.com/reel/DYCJLnEDn39/"
+            "facebook": "https://www.facebook.com/reel/1315074787236817",
+            "instagram": "https://www.instagram.com/reel/DYR-p4MDGxk/"
           }
         },
         {
-          "title": "Stained Glass at Midnight",
-          "watch_url": "https://youtube.com/@ambervinyl",
-          "thumbnail": "data/covers/song_21.jpg",
-          "uploaded_at": "2026-05-07",
+          "title": "Dust Motes in the Parlor",
+          "watch_url": "https://youtu.be/OBq0ELjwh1I",
+          "thumbnail": "data/covers/song_72.jpg",
+          "uploaded_at": "2026-05-11",
           "mood": "warm, nostalgic, intimate, bittersweet",
           "genre": "acoustic jazz / bossa nova / late night",
           "platforms": [
@@ -64,10 +64,10 @@
             "instagram"
           ],
           "platform_urls": {
-            "youtube": "https://youtube.com/@ambervinyl",
+            "youtube": "https://youtu.be/OBq0ELjwh1I",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/836713016102880",
-            "instagram": "https://www.instagram.com/reel/DYCJtR1jvnK/"
+            "facebook": "https://www.facebook.com/reel/1951421706261719",
+            "instagram": "https://www.instagram.com/reel/DYM4aaoD6H2/"
           }
         }
       ]
@@ -85,61 +85,59 @@
       "instagram_url": "https://www.instagram.com/lullwavefm/",
       "latest": [
         {
-          "title": "Lanterns of the Unseen Path",
-          "watch_url": "https://youtu.be/f9zyUa53v7E",
-          "thumbnail": "data/covers/song_26.jpg",
-          "uploaded_at": "2026-05-07",
+          "title": "The Memory That Stone Holds",
+          "watch_url": "https://youtu.be/gX4kxXL5QnA",
+          "thumbnail": "data/covers/song_91.jpg",
+          "uploaded_at": "2026-05-13",
+          "mood": "sacred, grounding, timeless, alive",
+          "genre": "zen sacred ambient",
+          "platforms": [
+            "youtube",
+            "facebook",
+            "instagram"
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/gX4kxXL5QnA",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/1490116609221073",
+            "instagram": "https://www.instagram.com/reel/DYR_KfRjA15/"
+          }
+        },
+        {
+          "title": "The Stone Listens at Dawn",
+          "watch_url": "https://youtu.be/JBXcU8WFgx0",
+          "thumbnail": "data/covers/song_90.jpg",
+          "uploaded_at": "2026-05-13",
+          "mood": "sacred, grounding, timeless, alive",
+          "genre": "world healing, zen, sacred ambient",
+          "platforms": [
+            "youtube",
+            "facebook",
+            "instagram"
+          ],
+          "platform_urls": {
+            "youtube": "https://youtu.be/JBXcU8WFgx0",
+            "tiktok": null,
+            "facebook": "https://www.facebook.com/reel/1657380755510224",
+            "instagram": "https://www.instagram.com/reel/DYR-rIPDNqZ/"
+          }
+        },
+        {
+          "title": "What the Fog Keeps",
+          "watch_url": "https://youtu.be/PaF8uYA9eH8",
+          "thumbnail": "data/covers/song_75.jpg",
+          "uploaded_at": "2026-05-11",
           "mood": "sacred, grounding, timeless, alive",
           "genre": "world healing / zen / sacred ambient",
           "platforms": [
             "youtube",
-            "facebook",
-            "instagram"
+            "facebook"
           ],
           "platform_urls": {
-            "youtube": "https://youtu.be/f9zyUa53v7E",
+            "youtube": "https://youtu.be/PaF8uYA9eH8",
             "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/969763269274771",
-            "instagram": "https://www.instagram.com/reel/DYCIIkejjBY/"
-          }
-        },
-        {
-          "title": "Dew on the Threshold of Silence",
-          "watch_url": "https://youtu.be/Etkex1b8kPg",
-          "thumbnail": "data/covers/song_25.jpg",
-          "uploaded_at": "2026-05-07",
-          "mood": "sacred, grounding, timeless, alive",
-          "genre": "world healing / zen / sacred ambient",
-          "platforms": [
-            "youtube",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/Etkex1b8kPg",
-            "tiktok": null,
-            "facebook": "https://www.facebook.com/reel/2005266250366131",
-            "instagram": "https://www.instagram.com/reel/DYCIwvrjtiq/"
-          }
-        },
-        {
-          "title": "Vows of the Sunlit Moss",
-          "watch_url": "https://youtu.be/fBZvcjNlrmA",
-          "thumbnail": "data/covers/song_15.jpg",
-          "uploaded_at": "2026-05-06",
-          "mood": "sacred, grounding, timeless",
-          "genre": "world healing / zen / sacred ambient",
-          "platforms": [
-            "youtube",
-            "tiktok",
-            "facebook",
-            "instagram"
-          ],
-          "platform_urls": {
-            "youtube": "https://youtu.be/fBZvcjNlrmA",
-            "tiktok": "https://www.tiktok.com/@lullwave.official/video/7636794311908150545",
-            "facebook": "https://www.facebook.com/reel/1757097248603745",
-            "instagram": "https://www.instagram.com/reel/DYAH1g_jq5u/"
+            "facebook": "https://www.facebook.com/reel/858731980580004",
+            "instagram": null
           }
         }
       ]
